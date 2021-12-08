@@ -22,7 +22,19 @@ public class AudioManagement : MonoBehaviour
 
     void Start()
     {
-        Play("Level1");
+        string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        if (currentScene == "MainMenu")
+            Play("MainMenu");
+
+        else if (currentScene == "Level1")
+            Play("Level1");
+
+        else if (currentScene == "MiniGame1")
+            Play("MiniGame");
+
+        else if (currentScene == "Level2")
+            Play("Level2");
     }
 
     public void Play(string audioName)
