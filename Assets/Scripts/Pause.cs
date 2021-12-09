@@ -17,9 +17,6 @@ public class Pause : MonoBehaviour
     [SerializeField]
     private GameObject levelUI;
 
-    [SerializeField]
-    private AudioSource audioSource;
-
     private AudioManagement audioManagement;
 
     // Start is called before the first frame update
