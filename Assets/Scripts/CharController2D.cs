@@ -155,11 +155,18 @@ public class CharController2D : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Mace") || collision.gameObject.CompareTag("Spikes") || collision.gameObject.CompareTag("Saw") || collision.gameObject.CompareTag("Fire"))
+        if (collision.gameObject.CompareTag("Mace") || collision.gameObject.CompareTag("Spikes") || collision.gameObject.CompareTag("Saw"))
         {
             animator.SetBool("isHit", false);
             // Adds impulse to the player character to push them away from the obstacle
             collision.otherRigidbody.AddForce(new Vector2(-20.0f, -20.0f), ForceMode2D.Impulse);
+        }
+
+        if (collision.gameObject.CompareTag("Beetle") || collision.gameObject.CompareTag("GiantBeetle") || collision.gameObject.CompareTag("Fire"))
+        {
+            animator.SetBool("isHit", false);
+            // Adds impulse to the player character to push them away from the obstacle
+            collision.otherRigidbody.AddForce(new Vector2(-10.0f, -10.0f), ForceMode2D.Impulse);
         }
     }
 
@@ -218,6 +225,12 @@ public class CharController2D : MonoBehaviour
             audioManagement.Play("Hurt2");
             playerHealth.TakeDamage(2);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Fire"))
+            animator.SetBool("isHit", false);
     }
 
 
