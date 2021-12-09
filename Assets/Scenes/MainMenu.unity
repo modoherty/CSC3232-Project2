@@ -2052,7 +2052,7 @@ MonoBehaviour:
   audios:
   - audioName: MainMenu
     audioClip: {fileID: 8300000, guid: 47f45ef7b5767674393cc401fc325705, type: 3}
-    volume: 1
+    volume: 0.1
     pitch: 1
     loop: 1
     audioSource: {fileID: 0}
