@@ -18,7 +18,7 @@ public class Audio
     // Slider for audio pitch - between 0 and 2
     [Range(0f, 2f)]
     public float pitch;
-
+    // Boolean to determine whether the sound will loop in the game
     public bool loop;
 
     // Keep the audio source hidden in inspector mode, so it cannot be overwritten
