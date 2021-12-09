@@ -61,20 +61,25 @@ public class Flocking : MonoBehaviour
         ApplyForce(currentForce);
     }
 
+    // This method will keep the shapes/objects together as cohesive units
     Vector2 Cohesion()
     {
         float neighbourDist = flockManager.GetComponent<FlockingGenerate>().neighbourDist;
+        // Sum of the distances between each object
         Vector2 sum = Vector2.zero;
         int count = 0;
 
         foreach(GameObject shape in flockManager.GetComponent<FlockingGenerate>().shapes)
         {
+            // Do nothing if on the current shape
             if (shape == this.gameObject)
                 continue;
 
             float dist = Vector2.Distance(location, shape.GetComponent<Flocking>().location);
+            // If the object is a neighbour of the other object
             if(dist < neighbourDist)
             {
+                // Add their location to the sum
                 sum += shape.GetComponent<Flocking>().location;
                 count++;
             }
@@ -82,6 +87,7 @@ public class Flocking : MonoBehaviour
 
         if(count > 0)
         {
+            // Get the average distance between shapes
             sum /= count;
             return Seek(sum);
         }
