@@ -69,6 +69,7 @@ public class CharController2D : MonoBehaviour
                 player.position = new Vector3(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
         }
 
+        // Disables the fading transition when the level loads
         levelLoad.gameObject.SetActive(false);
     }
 
@@ -229,6 +230,7 @@ public class CharController2D : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        // Reset the animator to stop playing the hit animation
         if (collision.gameObject.CompareTag("Fire"))
             animator.SetBool("isHit", false);
     }
