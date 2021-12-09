@@ -100,11 +100,8 @@ public class CharController2D : MonoBehaviour
         animator.SetBool("Grounded", grounded);
         animator.SetFloat("vSpeed", rigidBody.velocity.y);
 
-        if(rigidBody.position.y < -12)
-        {
-            audioManagement.Play("Death");
+        if(rigidBody.position.y < -20)
             playerLives.LoseLife(1);
-        }
 
         // This represents a 20% reduction in the scale of gravity on the main character, as well as a 20% reduction in their mass.
         // I included this to allow higher, further jumps in the higher sections of the levels.
@@ -121,6 +118,7 @@ public class CharController2D : MonoBehaviour
             rigidBody.mass = 0.8f;
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -169,6 +167,7 @@ public class CharController2D : MonoBehaviour
         {
             // Gain 1 health if the player picks up an apple
             playerHealth.TakeDamage(-1);
+            audioManagement.Play("CollectFruit");
             collision.gameObject.SetActive(false);
         }
 
@@ -176,6 +175,7 @@ public class CharController2D : MonoBehaviour
         {
             // Gain 1 life if the player picks up a banana
             playerLives.GainLife(1);
+            audioManagement.Play("CollectFruit");
             collision.gameObject.SetActive(false);
         }
 
@@ -183,6 +183,7 @@ public class CharController2D : MonoBehaviour
         {
             // Gain 2 health if the player picks up a watermelon
             playerHealth.TakeDamage(-2);
+            audioManagement.Play("CollectFruit");
             collision.gameObject.SetActive(false);
         }
 

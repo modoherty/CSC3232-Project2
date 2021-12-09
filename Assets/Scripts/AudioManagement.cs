@@ -16,11 +16,13 @@ public class AudioManagement : MonoBehaviour
             a.audioSource.volume = a.volume;
             a.audioSource.pitch = a.pitch;
             a.audioSource.loop = a.loop;
+
+            a.audioSource.playOnAwake = false;
         }
 
     }
 
-    void Start()
+    public void Start()
     {
         string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
@@ -41,5 +43,11 @@ public class AudioManagement : MonoBehaviour
     {
         Audio a = Array.Find(audios, sound => sound.audioName == audioName);
         a.audioSource.Play();
+    }
+
+    public void Pause(string audioName)
+    {
+        Audio a = Array.Find(audios, sound => sound.audioName == audioName);
+        a.audioSource.Pause();
     }
 }

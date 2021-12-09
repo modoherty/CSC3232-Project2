@@ -15,6 +15,8 @@ public class PlayerLives : MonoBehaviour
 
     private TextMeshProUGUI livesText;
 
+    private AudioManagement audioManagement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class PlayerLives : MonoBehaviour
 
         livesText = GetComponent<TextMeshProUGUI>();
         livesText.text = "LIVES: " + currentLives;
+
+        audioManagement = FindObjectOfType<AudioManagement>();
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class PlayerLives : MonoBehaviour
             PlayerPrefs.SetInt("currentLives", currentLives);
             PlayerPrefs.Save();
             Debug.Log("Lost life - lives remaining = " + currentLives);
+            audioManagement.Play("Death");
             RestartLevel();
         }
         else
@@ -47,6 +52,7 @@ public class PlayerLives : MonoBehaviour
             // Gives player back 5 initial lives - "clean slate"
             PlayerPrefs.SetInt("currentLives", 5);
             Debug.Log("No Lives Remaining - Game Over!");
+            audioManagement.Play("GameOver");
             GameOver();
         }
     }

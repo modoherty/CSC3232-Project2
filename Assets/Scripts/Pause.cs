@@ -20,10 +20,12 @@ public class Pause : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource;
 
+    private AudioManagement audioManagement;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManagement = FindObjectOfType<AudioManagement>();
     }
 
     // Update is called once per frame
@@ -54,7 +56,8 @@ public class Pause : MonoBehaviour
         // Sets paused bool value to false
         isPaused = false;
         // Replays the audio source
-        audioSource.Play();
+        audioManagement.gameObject.SetActive(true);
+        audioManagement.Start();
     }
 
     private void GamePause()
@@ -68,7 +71,7 @@ public class Pause : MonoBehaviour
         // Sets paused bool value to true
         isPaused = true;
         // Pauses the audio currently playing in the game
-        audioSource.Pause();
+        audioManagement.gameObject.SetActive(false);
     }
     public void RestartLevel()
     {

@@ -4080,11 +4080,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 389215767951946779, guid: eabc13717aa7984498bd883555b76aff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 415
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 389215767951946779, guid: eabc13717aa7984498bd883555b76aff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 389215767951946779, guid: eabc13717aa7984498bd883555b76aff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6777,6 +6777,24 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - audioName: Hurt2
     audioClip: {fileID: 8300000, guid: 2b6e306f144fd2047ad36490140f8b85, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - audioName: CollectFruit
+    audioClip: {fileID: 8300000, guid: 5ab8fc664ca4d604f820e255005a664a, type: 3}
+    volume: 1
+    pitch: 0.6
+    loop: 0
+    audioSource: {fileID: 0}
+  - audioName: GameOver
+    audioClip: {fileID: 8300000, guid: 832aa39d4fbe053428a67083bb091a1a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - audioName: Walking
+    audioClip: {fileID: 8300000, guid: a35ec44331d4b514cabf31e928f058b5, type: 3}
     volume: 1
     pitch: 1
     loop: 0
