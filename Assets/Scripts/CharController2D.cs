@@ -210,6 +210,7 @@ public class CharController2D : MonoBehaviour
     {
         if (grounded)
         {
+            //audioManagement.Play("Walking");
             // Set speed animator parameter to absolute value of the horizontal input
             animator.SetFloat("Speed", Mathf.Abs(move));
 
