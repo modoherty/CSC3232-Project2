@@ -18,8 +18,8 @@ public class FlockingGenerate : MonoBehaviour
     [SerializeField]
     private Vector2 range = new Vector2(10, 10);
 
-    [Range(0, 200), SerializeField]
-    public int neighbourDist = 50;
+    [Range(0.0f, 5.0f), SerializeField]
+    public float neighbourDist;
 
     private void OnDrawGizmosSelected()
     {

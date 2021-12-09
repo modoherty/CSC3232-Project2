@@ -49,14 +49,21 @@ public class Flocking : MonoBehaviour
         velocity = this.GetComponent<Rigidbody2D>().velocity;
         location = this.transform.position;
 
-        // Sets the goal position
-        Vector2 goalPosition;
-        goalPosition = Seek(goal);
 
-        /* Sets and normalises the current force, to ensure all objects
-         * move with the same amount of force */
-        currentForce = goalPosition;
-        currentForce = currentForce.normalized;
+        //if(Random.Range(0, 50) <= 1)
+        //{
+            Vector2 alignment = Alignment();
+            Vector2 cohesion = Cohesion();
+
+            // Sets the goal position
+            Vector2 goalPosition;
+            goalPosition = Seek(goal);
+
+            /* Sets and normalises the current force, to ensure all objects
+             * move with the same amount of force */
+            currentForce = goalPosition + cohesion + alignment;
+            currentForce = currentForce.normalized;
+        //}
 
         ApplyForce(currentForce);
     }
