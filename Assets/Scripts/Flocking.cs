@@ -23,14 +23,16 @@ public class Flocking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        goal = flockManager.transform.position;
-        //velocity = new Vector2(Random.Range(0.01f, 0.1f), Random.Range(0.01f, 0.1f));
+        goal = new Vector2(flockManager.transform.position.x - 6f, flockManager.transform.position.y + 4f);
+        velocity = new Vector2(Random.Range(0.01f, 0.1f), Random.Range(0.01f, 0.1f));
         //location = new Vector2(this.gameObject.transform.position.x, 
                                //this.gameObject.transform.position.y);
     }
 
     Vector2 Seek(Vector2 target)
     {
+        /* Returns the difference between the object's
+           target position and its current location */
         return (target - location);
     }
 
@@ -59,7 +61,33 @@ public class Flocking : MonoBehaviour
         ApplyForce(currentForce);
     }
 
+    Vector2 Cohesion()
+    {
+        float neighbourDist = flockManager.GetComponent<FlockingGenerate>().neighbourDist;
+        Vector2 sum = Vector2.zero;
+        int count = 0;
 
+        foreach(GameObject shape in flockManager.GetComponent<FlockingGenerate>().shapes)
+        {
+            if (shape == this.gameObject)
+                continue;
+
+            float dist = Vector2.Distance(location, shape.GetComponent<Flocking>().location);
+            if(dist < neighbourDist)
+            {
+                sum += shape.GetComponent<Flocking>().location;
+                count++;
+            }
+        }
+
+        if(count > 0)
+        {
+            sum /= count;
+            return Seek(sum);
+        }
+
+        return Vector2.zero;
+    }
 
     // Update is called once per frame
     void Update()

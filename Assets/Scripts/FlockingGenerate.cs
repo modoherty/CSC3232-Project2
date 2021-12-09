@@ -7,7 +7,7 @@ public class FlockingGenerate : MonoBehaviour
     /* Fields for the prefab to be used to generate the array of shapes,
        how many shapes to create, and the range they can appear within the level */
     [SerializeField]
-    private GameObject[] shapes;
+    public GameObject[] shapes;
 
     [SerializeField]
     private GameObject shapePrefab;
@@ -17,6 +17,9 @@ public class FlockingGenerate : MonoBehaviour
 
     [SerializeField]
     private Vector2 range = new Vector2(10, 10);
+
+    [Range(0, 200), SerializeField]
+    public int neighbourDist = 50;
 
     private void OnDrawGizmosSelected()
     {
