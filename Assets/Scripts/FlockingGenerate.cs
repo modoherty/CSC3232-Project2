@@ -40,6 +40,7 @@ public class FlockingGenerate : MonoBehaviour
             // Instantiate the prefab on the screen and in the level
             shapes[i] = Instantiate(shapePrefab, this.transform.position + shapePosition, 
                                     Quaternion.identity) as GameObject;
+            shapes[i].GetComponent<Flocking>().flockManager = this.gameObject;
         }
     }
 

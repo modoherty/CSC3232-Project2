@@ -11556,9 +11556,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle
       objectReference: {fileID: 0}
+    - target: {fileID: 2081378129527176041, guid: 34a84eb246ef2ba42b17fe4b29fad1e7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5458597738787051218, guid: 34a84eb246ef2ba42b17fe4b29fad1e7, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458597738787051218, guid: 34a84eb246ef2ba42b17fe4b29fad1e7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458597738787051218, guid: 34a84eb246ef2ba42b17fe4b29fad1e7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458597738787051218, guid: 34a84eb246ef2ba42b17fe4b29fad1e7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5458597738787051218, guid: 34a84eb246ef2ba42b17fe4b29fad1e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11599,6 +11615,14 @@ PrefabInstance:
     - target: {fileID: 5458597738787051218, guid: 34a84eb246ef2ba42b17fe4b29fad1e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626530345393763254, guid: 34a84eb246ef2ba42b17fe4b29fad1e7, type: 3}
+      propertyPath: flockManager
+      value: 
+      objectReference: {fileID: 1226891668}
+    - target: {fileID: 8739974703144005893, guid: 34a84eb246ef2ba42b17fe4b29fad1e7, type: 3}
+      propertyPath: m_Radius
+      value: 0.58
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34a84eb246ef2ba42b17fe4b29fad1e7, type: 3}
