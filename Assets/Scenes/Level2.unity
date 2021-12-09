@@ -2599,7 +2599,6 @@ MonoBehaviour:
   pauseMenu: {fileID: 1194914352}
   quitPanel: {fileID: 1370923707}
   levelUI: {fileID: 1779020197}
-  audioSource: {fileID: 327971521}
 --- !u!114 &555215456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11575,23 +11574,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4430789506328050725, guid: 8cf7a7f8d19782a4293c3fb472dd9e93, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.9
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4430789506328050725, guid: 8cf7a7f8d19782a4293c3fb472dd9e93, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.9
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4430789506328050725, guid: 8cf7a7f8d19782a4293c3fb472dd9e93, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.9
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4430789506328050725, guid: 8cf7a7f8d19782a4293c3fb472dd9e93, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 261.5
+      value: 261.46
       objectReference: {fileID: 0}
     - target: {fileID: 4430789506328050725, guid: 8cf7a7f8d19782a4293c3fb472dd9e93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.6
+      value: 4.45
       objectReference: {fileID: 0}
     - target: {fileID: 4430789506328050725, guid: 8cf7a7f8d19782a4293c3fb472dd9e93, type: 3}
       propertyPath: m_LocalPosition.z

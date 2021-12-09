@@ -125,7 +125,7 @@ public class CharController2D : MonoBehaviour
         // If the player is colliding with an obstacle in the level
         if(collision.gameObject.CompareTag("Mace") || collision.gameObject.CompareTag("Spikes") || collision.gameObject.CompareTag("Saw"))
         {
-            // Adds force to the mace to prevent it from losing all momentum
+            // Adds force to the obstacle to prevent it from losing all momentum
             collision.rigidbody.AddForce(new Vector2(20.0f, 20.0f), ForceMode2D.Impulse);
 
             // Adds impulse to the player to push them away from the object they are collding with
@@ -133,6 +133,21 @@ public class CharController2D : MonoBehaviour
             animator.SetBool("isHit", true);
 
             audioManagement.Play("Hurt1");
+            // Take 1 damage
+            playerHealth.TakeDamage(1);
+        }
+
+        // If the player is colliding with an obstacle in the level
+        if (collision.gameObject.CompareTag("Beetle") || collision.gameObject.CompareTag("GiantBeetle")) 
+        {
+            // Adds force to the mace to prevent it from losing all momentum
+            //collision.rigidbody.AddForce(new Vector2(20.0f, 20.0f), ForceMode2D.Impulse);
+
+            // Adds impulse to the player to push them away from the object they are collding with
+            collision.otherRigidbody.AddForce(new Vector2(collision.otherRigidbody.velocity.x / 4, collision.otherRigidbody.velocity.y / 4), ForceMode2D.Impulse);
+            animator.SetBool("isHit", true);
+
+            audioManagement.Play("Hurt2");
             // Take 1 damage
             playerHealth.TakeDamage(1);
         }
