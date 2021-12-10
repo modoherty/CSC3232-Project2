@@ -1803,7 +1803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boundaries: 1
   minPosition: {x: -2, y: 0, z: -10}
-  maxPosition: {x: 1000, y: 100, z: -10}
+  maxPosition: {x: 600, y: 100, z: -10}
 --- !u!81 &312662636
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4961,7 +4961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb90d3aa1b70a444a765dc99d934cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelLoad: {fileID: 0}
+  levelLoad: {fileID: 1605174839}
 --- !u!212 &832663142
 SpriteRenderer:
   m_ObjectHideFlags: 0
