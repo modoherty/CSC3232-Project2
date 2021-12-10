@@ -27,7 +27,7 @@ public class DoorPlayerCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
 
             // In 'main levels' of the game
-            if (currentScene == "Level1" || currentScene == "Level2")
+            if (currentScene == "Level1" || currentScene == "Level2" || currentScene == "Level3")
             {
                 if (PlayerPrefs.GetInt("Coins") >= 10)
                 {
