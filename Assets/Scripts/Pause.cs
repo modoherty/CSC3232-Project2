@@ -44,6 +44,8 @@ public class Pause : MonoBehaviour
     }
     public void GameResume()
     {
+        audioManagement.gameObject.SetActive(true);
+        audioManagement.Play("Click");
         // Deactivates pause menu
         pauseMenu.SetActive(false);
         // Reactivates level UI
@@ -53,7 +55,7 @@ public class Pause : MonoBehaviour
         // Sets paused bool value to false
         isPaused = false;
         // Replays the audio source
-        audioManagement.gameObject.SetActive(true);
+        
         audioManagement.Start();
     }
 
@@ -74,10 +76,14 @@ public class Pause : MonoBehaviour
     {
         /* Reset checkpoint and collected coin status - the player must start the level from the beginning 
            if they restart from the pause menu */
+        
         bool checkpoint = false;
         PlayerPrefs.SetInt("Checkpoint", checkpoint ? 1 : 0);
         PlayerPrefs.SetInt("Coins", 0); 
         PlayerPrefs.Save();
+
+        audioManagement.gameObject.SetActive(true);
+        audioManagement.Play("Click");
 
         // Restarts the level and ensures that the game is unpaused
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -86,6 +92,9 @@ public class Pause : MonoBehaviour
 
     public void OpenQuitMenu()
     {
+        audioManagement.gameObject.SetActive(true);
+        audioManagement.Play("Click");
+
         /* Opens the panel to ask the player for confirmation
            that they would like to quit the game */
         quitPanel.SetActive(true);
@@ -93,6 +102,9 @@ public class Pause : MonoBehaviour
 
     public void CloseQuitMenu()
     {
+        audioManagement.gameObject.SetActive(true);
+        audioManagement.Play("Click");
+
         // Closes the quit menu if the player decides not to quit the game
         quitPanel.SetActive(false);
     }
@@ -100,6 +112,8 @@ public class Pause : MonoBehaviour
     public void QuitGame()
     {
         // Quits the game
+        audioManagement.gameObject.SetActive(true);
+        audioManagement.Play("Click");
         Debug.Log("Application has been quit.");
         Application.Quit();
     }
