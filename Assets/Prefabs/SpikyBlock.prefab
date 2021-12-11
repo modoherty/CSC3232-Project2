@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3784674004274059573}
   m_Layer: 0
   m_Name: SpikyBlock
-  m_TagString: Untagged
+  m_TagString: Spiky Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

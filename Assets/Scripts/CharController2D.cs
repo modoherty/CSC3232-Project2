@@ -138,14 +138,12 @@ public class CharController2D : MonoBehaviour
             playerHealth.TakeDamage(1);
         }
 
-        // If the player is colliding with an obstacle in the level
-        if (collision.gameObject.CompareTag("Beetle") || collision.gameObject.CompareTag("GiantBeetle")) 
+        // If the player is colliding with an enemy in the level
+        if (collision.gameObject.CompareTag("Beetle") || collision.gameObject.CompareTag("GiantBeetle") || collision.gameObject.CompareTag("Spiky Block")) 
         {
-            // Adds force to the mace to prevent it from losing all momentum
-            //collision.rigidbody.AddForce(new Vector2(20.0f, 20.0f), ForceMode2D.Impulse);
 
             // Adds impulse to the player to push them away from the object they are collding with
-            collision.otherRigidbody.AddForce(new Vector2(collision.otherRigidbody.velocity.x / 4, collision.otherRigidbody.velocity.y / 4), ForceMode2D.Impulse);
+            //collision.otherRigidbody.AddForce(new Vector2(collision.otherRigidbody.velocity.x / 4, collision.otherRigidbody.velocity.y / 4), ForceMode2D.Impulse);
             animator.SetBool("isHit", true);
 
             audioManagement.Play("Hurt2");
@@ -156,7 +154,7 @@ public class CharController2D : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Mace") || collision.gameObject.CompareTag("Spikes") || collision.gameObject.CompareTag("Saw"))
+        if (collision.gameObject.CompareTag("Mace") || collision.gameObject.CompareTag("Spikes") || collision.gameObject.CompareTag("Saw") || collision.gameObject.CompareTag("Spiky Block"))
         {
             animator.SetBool("isHit", false);
             // Adds impulse to the player character to push them away from the obstacle
