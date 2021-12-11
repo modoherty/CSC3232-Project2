@@ -59,7 +59,7 @@ public class CharController2D : MonoBehaviour
         // The current scene the player is on
         currentScene = SceneManager.GetActiveScene().name;
 
-        if (currentScene == "Level1")
+        if (currentScene == "Level1" || currentScene == "Level2")
         {
             // Determines if the player has triggered the checkpoint in the first level
             checkpoint = PlayerPrefs.GetInt("Checkpoint") == 1 ? true : false;
