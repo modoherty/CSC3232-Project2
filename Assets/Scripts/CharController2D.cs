@@ -268,6 +268,8 @@ public class CharController2D : MonoBehaviour
             grounded = false;
             animator.SetBool("Grounded", false);
 
+            audioManagement.Play("Jump");
+
             // Resets the character's velocity before jumping to prevent 'infinite jumps'
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0f);
             // Applying the jump force to the rigid body, allowing it to jump
