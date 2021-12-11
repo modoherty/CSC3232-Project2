@@ -44,16 +44,42 @@ public class PlayerLives : MonoBehaviour
             PlayerPrefs.SetInt("currentLives", currentLives);
             PlayerPrefs.Save();
             Debug.Log("Lost life - lives remaining = " + currentLives);
-            audioManagement.Play("Death");
-            RestartLevel();
+            // Restarts level using coroutine
+            StartCoroutine(Restart());
         }
         else
         {
             // Gives player back 5 initial lives - "clean slate"
             PlayerPrefs.SetInt("currentLives", 5);
             Debug.Log("No Lives Remaining - Game Over!");
-            audioManagement.Play("GameOver");
-            GameOver();
+            // Uses coroutine for 'game over'
+            StartCoroutine(Restart());
+        }
+
+        IEnumerator Restart()
+        {
+            if (currentLives > 0)
+            {
+                // Pauses in-game time to prevent collision/sound playing issues
+                Time.timeScale = 0f;
+                // Play the death sound
+                audioManagement.Play("Death");
+                // Wait for 0.7 seconds so the whole sound can play
+                yield return new WaitForSecondsRealtime(0.7f);
+                // Restart the level
+                RestartLevel();
+            }
+            else
+            {
+                // 'Pauses' the game
+                Time.timeScale = 0f;
+                // Play Game Over sound
+                audioManagement.Play("GameOver");
+                // Wait for 1.4 seconds before sending the player back to level 1
+                yield return new WaitForSecondsRealtime(1.4f);
+                // Game Over - player must restart from the beginning
+                GameOver();
+            }
         }
     }
 
@@ -78,6 +104,9 @@ public class PlayerLives : MonoBehaviour
         // Restarts the current level the user is on, resetting coin collection status
         PlayerPrefs.SetInt("Coins", 0);
         PlayerPrefs.Save();
+
+        // Resume game before reloading current level
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
@@ -90,6 +119,8 @@ public class PlayerLives : MonoBehaviour
         PlayerPrefs.SetInt("Coins", 0);
         PlayerPrefs.Save();
 
+        // Restart in-game time
+        Time.timeScale = 1f;
         // Load first level if player has no lives
         SceneManager.LoadScene("Level1");
     }
