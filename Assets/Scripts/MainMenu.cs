@@ -20,14 +20,27 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject quitPanel;
 
+    // AudioManagement - which contains all of the game's sound clips
+    private AudioManagement audioManagement;
+
+    private void Start()
+    {
+        // Initiating the audio management
+        audioManagement = FindObjectOfType<AudioManagement>();
+    }
+
     public void BeginGame()
     {
+        // Plays click sound
+        audioManagement.Play("Click");
         // Loads the next scene - which is the first level of the game
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void OpenControlsMenu()
     {
+        // Plays click sound
+        audioManagement.Play("Click");
         // Opens the controls menu, which displays the game controls
         mainMenu.SetActive(false);
         controlsMenu.SetActive(true);
@@ -35,6 +48,8 @@ public class MainMenu : MonoBehaviour
 
     public void CloseControlsMenu()
     {
+        // Plays click sound
+        audioManagement.Play("Click");
         // Closes the controls menu and returns to the main menu
         controlsMenu.SetActive(false);
         mainMenu.SetActive(true);
@@ -42,6 +57,8 @@ public class MainMenu : MonoBehaviour
 
     public void OpenQuitMenu()
     {
+        // Plays click sound
+        audioManagement.Play("Click");
         /* Opens the panel to ask the player for confirmation
            that they would like to quit the game */
         quitPanel.SetActive(true);
@@ -49,12 +66,16 @@ public class MainMenu : MonoBehaviour
 
     public void CloseQuitMenu()
     {
+        // Plays click sound
+        audioManagement.Play("Click");
         // Closes the quit menu if the player decides not to quit the game
         quitPanel.SetActive(false);
     }
 
     public void QuitGame()
     {
+        // Plays click sound
+        audioManagement.Play("Click");
         // Quits the game
         Debug.Log("Application has been quit.");
         Application.Quit();

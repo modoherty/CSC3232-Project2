@@ -1110,7 +1110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbe5952731a26a4ea555ec71d41f01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chests: []
   playerLives: {fileID: 1633906017}
 --- !u!212 &150984864
 SpriteRenderer:
@@ -3053,19 +3052,19 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - audioName: DoorLocked
     audioClip: {fileID: 8300000, guid: fd38fe302db84034fad5daa4a037d679, type: 3}
-    volume: 0.15
+    volume: 0.5
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
   - audioName: LevelComplete
     audioClip: {fileID: 8300000, guid: f05206903c6c9f9468fd064aa38a7e8b, type: 3}
-    volume: 0.15
+    volume: 0.28
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
   - audioName: Bonus
     audioClip: {fileID: 8300000, guid: 66852431e1babd74b828f9b901e038be, type: 3}
-    volume: 0.15
+    volume: 0.6
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
@@ -3471,7 +3470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbe5952731a26a4ea555ec71d41f01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chests: []
   playerLives: {fileID: 1633906017}
 --- !u!212 &1368598693
 SpriteRenderer:
@@ -5325,7 +5323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbe5952731a26a4ea555ec71d41f01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chests: []
   playerLives: {fileID: 1633906017}
 --- !u!212 &1667632780
 SpriteRenderer:

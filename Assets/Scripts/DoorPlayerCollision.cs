@@ -64,6 +64,8 @@ public class DoorPlayerCollision : MonoBehaviour
             // Wait for 0.7 seconds so the whole sound can play
             yield return new WaitForSecondsRealtime(0.9f);
 
+            Time.timeScale = 1f;
+
             levelLoad.gameObject.SetActive(true);
             levelLoad.LoadNextLevel();
         }

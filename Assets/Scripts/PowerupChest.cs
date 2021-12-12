@@ -5,7 +5,8 @@ using UnityEngine;
 public class PowerupChest : MonoBehaviour
 {
     private Animator animator;
-    [SerializeField]
+    private AudioManagement audioManagement;
+
     private GameObject[] chests;
 
     [SerializeField]
@@ -15,14 +16,9 @@ public class PowerupChest : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioManagement = FindObjectOfType<AudioManagement>();
 
         chests = GameObject.FindGameObjectsWithTag("Chest");
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -30,6 +26,7 @@ public class PowerupChest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             animator.SetBool("Open", true);
+            audioManagement.Play("Bonus");
 
             /* This is a random number generator used to determine what reward is inside each chest.
             *  The player is more likely to only gain 1 life after opening their chosen chest, compared to
