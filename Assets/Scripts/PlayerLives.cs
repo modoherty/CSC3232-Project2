@@ -17,7 +17,6 @@ public class PlayerLives : MonoBehaviour
 
     private AudioManagement audioManagement;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentLives = PlayerPrefs.GetInt("currentLives");
@@ -26,12 +25,6 @@ public class PlayerLives : MonoBehaviour
         livesText.text = "LIVES: " + currentLives;
 
         audioManagement = FindObjectOfType<AudioManagement>();
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
     }
 
     public void LoseLife(int life)

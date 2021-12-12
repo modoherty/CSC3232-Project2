@@ -8,6 +8,12 @@ using Pathfinding;
  * by user Etredal on YouTube for this class.
  * 
  * Link to video: https://www.youtube.com/watch?v=sWqRfygpl4I
+ * 
+ * NOTE - I had to import the A* Pathfinding Project by Aron Granberg,
+ * since Unity in 2D does not natively support NavMeshes and 
+ * platformer-style pathfinding.
+ * 
+ * Link to the A* Project: https://arongranberg.com/astar/download
  */
 
 
