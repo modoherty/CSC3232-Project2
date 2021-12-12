@@ -44,6 +44,11 @@ public class DoorPlayerCollision : MonoBehaviour
                 }
             }
 
+
+            else if (currentScene == "EndScreen")
+                // Return player to the main menu if they are at the final scene
+                SceneManager.LoadScene("MainMenu");
+
             else
                 // Door will automatically open in mini-game levels - there is no coin requirement
                 StartCoroutine(NextLevel());

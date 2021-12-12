@@ -45,6 +45,9 @@ public class AudioManagement : MonoBehaviour
 
         else if (currentScene == "Level2")
             Play("Level2");
+
+        else if (currentScene == "EndScreen")
+            Play("EndScreen");
     }
 
     // This method takes the name of the audio clip and will play it in the level.
