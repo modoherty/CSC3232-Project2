@@ -173,6 +173,8 @@ public class CharController2D : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Checkpoint"))
         {
+            audioManagement.Play("Bonus");
+
             // Saves the player's position where they 'collided' with the checkpoint
             checkpoint = true;
             PlayerPrefs.SetFloat("PlayerX", player.position.x);

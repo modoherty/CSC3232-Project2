@@ -58,13 +58,17 @@ public class DoorPlayerCollision : MonoBehaviour
         {
             Time.timeScale = 0f;
 
-            // Play the death sound
+            // Play the level complete sound
             audioManagement.Play("LevelComplete");
 
-            // Wait for 0.7 seconds so the whole sound can play
+            // Wait for 0.9 seconds so the whole sound can play
             yield return new WaitForSecondsRealtime(0.9f);
 
+            // Resume the game
             Time.timeScale = 1f;
+
+            PlayerPrefs.SetInt("Checkpoint", 0);
+            PlayerPrefs.SetInt("Coins", 0);
 
             levelLoad.gameObject.SetActive(true);
             levelLoad.LoadNextLevel();
