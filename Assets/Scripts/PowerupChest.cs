@@ -26,6 +26,7 @@ public class PowerupChest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             animator.SetBool("Open", true);
+            // Plays a sound when the chest opens
             audioManagement.Play("Bonus");
 
             /* This is a random number generator used to determine what reward is inside each chest.

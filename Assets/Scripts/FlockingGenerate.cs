@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* For this class, I followed a tutorial on YouTube by user
+ * Holistic3D on how to set up flocking in 2D Unity games. 
+ * The tutorial series I watched consisted of two videos:
+ * 
+ * https://www.youtube.com/watch?v=4mlyu9-WimM
+ * https://www.youtube.com/watch?v=iFAyb6x-a3Q
+ */
 public class FlockingGenerate : MonoBehaviour
 {
     /* Fields for the prefab to be used to generate the array of shapes,
