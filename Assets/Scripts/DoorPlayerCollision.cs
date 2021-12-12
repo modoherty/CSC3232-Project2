@@ -5,23 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class DoorPlayerCollision : MonoBehaviour
 {
+    // Game's current level
     private string currentScene;
 
+    // Level loader - includes fading transition
     [SerializeField]
     private LevelLoad levelLoad;
 
+    // Audio manager to play sounds when door is locked/unlocked
     private AudioManagement audioManagement;
     void Start()
     {
         // Setting the current scene the player is on
         currentScene = SceneManager.GetActiveScene().name;
+        // Finding the level's audio manager
         audioManagement = FindObjectOfType<AudioManagement>();
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -33,10 +31,8 @@ public class DoorPlayerCollision : MonoBehaviour
             {
                 if (PlayerPrefs.GetInt("Coins") >= 10)
                 {
-                    StartCoroutine(NextLevel());
                     // Only allow the door to be opened if the player has 10 or more coins
-                    //levelLoad.gameObject.SetActive(true);
-                    //levelLoad.LoadNextLevel();
+                    StartCoroutine(NextLevel());
                 }
 
                 else
@@ -49,13 +45,13 @@ public class DoorPlayerCollision : MonoBehaviour
             }
 
             else
-                StartCoroutine(NextLevel());
                 // Door will automatically open in mini-game levels - there is no coin requirement
-                //levelLoad.gameObject.SetActive(true);
-                //levelLoad.LoadNextLevel();
+                StartCoroutine(NextLevel());
+
 
         IEnumerator NextLevel()
         {
+            // Pause the game
             Time.timeScale = 0f;
 
             // Play the level complete sound
@@ -67,9 +63,11 @@ public class DoorPlayerCollision : MonoBehaviour
             // Resume the game
             Time.timeScale = 1f;
 
+            // Reset player checkpoint and coin collection status to prevent spawning issues
             PlayerPrefs.SetInt("Checkpoint", 0);
             PlayerPrefs.SetInt("Coins", 0);
 
+            // Activate the level transition, and load the next level
             levelLoad.gameObject.SetActive(true);
             levelLoad.LoadNextLevel();
         }
