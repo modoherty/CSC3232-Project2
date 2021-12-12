@@ -37,10 +37,10 @@ public class AudioManagement : MonoBehaviour
         if (currentScene == "MainMenu")
             Play("MainMenu");
 
-        else if (currentScene == "Level1")
+        else if (currentScene == "Level1" || currentScene == "Level3")
             Play("Level1");
 
-        else if (currentScene == "MiniGame1")
+        else if (currentScene == "MiniGame1" || currentScene == "MiniGame2")
             Play("MiniGame");
 
         else if (currentScene == "Level2")
