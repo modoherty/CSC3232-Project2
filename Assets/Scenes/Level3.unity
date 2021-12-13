@@ -16343,7 +16343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapes: []
   shapePrefab: {fileID: 789202439}
-  numberOfShapes: 60
+  numberOfShapes: 85
   range: {x: 10, y: 3}
   neighbourDist: 0.3
 --- !u!4 &1393518080
