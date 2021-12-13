@@ -129,11 +129,9 @@ public class CharController2D : MonoBehaviour
             // Adds force to the obstacle to prevent it from losing all momentum
             collision.rigidbody.AddForce(new Vector2(20.0f, 20.0f), ForceMode2D.Impulse);
 
-            // Adds impulse to the player to push them away from the object they are collding with
-            //collision.otherRigidbody.AddForce(new Vector2(collision.otherRigidbody.velocity.x / 4, collision.otherRigidbody.velocity.y / 4), ForceMode2D.Impulse);
             animator.SetBool("isHit", true);
-
             audioManagement.Play("Hurt1");
+
             // Take 1 damage
             playerHealth.TakeDamage(1);
         }
@@ -141,12 +139,9 @@ public class CharController2D : MonoBehaviour
         // If the player is colliding with an enemy in the level
         if (collision.gameObject.CompareTag("Beetle") || collision.gameObject.CompareTag("GiantBeetle") || collision.gameObject.CompareTag("Spiky Block")) 
         {
-
-            // Adds impulse to the player to push them away from the object they are collding with
-            //collision.otherRigidbody.AddForce(new Vector2(collision.otherRigidbody.velocity.x / 4, collision.otherRigidbody.velocity.y / 4), ForceMode2D.Impulse);
             animator.SetBool("isHit", true);
-
             audioManagement.Play("Hurt2");
+
             // Take 1 damage
             playerHealth.TakeDamage(1);
         }
@@ -270,6 +265,7 @@ public class CharController2D : MonoBehaviour
             grounded = false;
             animator.SetBool("Grounded", false);
 
+            // Play the 'jump' sound
             audioManagement.Play("Jump");
 
             // Resets the character's velocity before jumping to prevent 'infinite jumps'

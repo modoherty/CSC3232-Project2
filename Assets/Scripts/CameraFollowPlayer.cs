@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CameraFollowPlayer : MonoBehaviour
 {
-
+    /* Variables for the player, the camera's boundaries and 
+       minimum/maximum positions */
     private Transform player;
 
     float offsetX = 12.14f;
@@ -12,48 +13,37 @@ public class CameraFollowPlayer : MonoBehaviour
     public bool boundaries;
 
     [SerializeField]
-    private Vector3 minPosition; // =new Vector3(-4, 0, -10);
+    private Vector3 minPosition;
     [SerializeField]
-    private Vector3 maxPosition; // =new Vector3(1000, 100, -10);
+    private Vector3 maxPosition;
 
-    // Start is called before the first frame update
     void Start()
     {
+        // Gets the player character
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        
-    }
 
     void LateUpdate()
     {
-        /* Vector3 v = transform.position;
-
-         v.x = player.position.x;
-         v.y = player.position.y;
-
-         v.x += offsetX;
-         v.y += offsetY;
-
-         transform.position = v;*/
-
         Vector3 v = transform.position;
 
+        // Updates the camera's y position if the player is positioned beneath 20 on the y axis
         v.x = player.position.x;
         if (player.position.y > 0 && player.position.y < 20)
             v.y = player.position.y;
         else
             v.y = transform.position.y;
 
+        // Adds the offset to the x position
         v.x += offsetX;
 
+        // Updates the camera's position
         transform.position = v;
 
         if (boundaries)
         {
+            // Clamps the camera so it does not move past the level's set boundaries
             transform.position = new Vector3(
                 Mathf.Clamp(transform.position.x, minPosition.x, maxPosition.x),
                 Mathf.Clamp(transform.position.y, minPosition.y, maxPosition.y),

@@ -6,18 +6,13 @@ public class MaceMovement : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
     private HingeJoint2D hinge;
-    // Start is called before the first frame update
+
+
     void Start()
     {
         // Setting up the rigidbody and hinge joint
         rigidBody = GetComponent<Rigidbody2D>();
         hinge = GetComponent<HingeJoint2D>();
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
     }
 
     private void FixedUpdate()

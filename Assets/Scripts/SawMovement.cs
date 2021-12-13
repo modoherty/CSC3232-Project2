@@ -7,17 +7,11 @@ public class SawMovement : MonoBehaviour
     private Rigidbody2D rigidBody;
     private GameObject player;
 
-    // Start is called before the first frame update
     void Start()
     {
+        // Initialising saw and player components
         rigidBody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void FixedUpdate()

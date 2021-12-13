@@ -26,8 +26,6 @@ public class Flocking : MonoBehaviour
     Vector2 goal;
     Vector2 currentForce;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         goal = new Vector2(flockManager.transform.position.x - 6f, flockManager.transform.position.y + 4f);

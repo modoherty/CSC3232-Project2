@@ -36,7 +36,7 @@ public class PlayerCollision : MonoBehaviour
             }
 
             if (rb2D.position.y < -30 || rb2D.position.y > 30)
-                // 'Destroy' splatform if it passes the bounds of the level in either direction
+                // 'Destroy's platform if it passes the bounds of the level in either direction
                 rb2D.gameObject.SetActive(false);
 
             // Sets the animator to play the platform moving animation

@@ -83,6 +83,7 @@ public class Pause : MonoBehaviour
         PlayerPrefs.SetInt("Coins", 0); 
         PlayerPrefs.Save();
 
+        // Play clicking sound
         audioManagement.gameObject.SetActive(true);
         audioManagement.Play("Click");
 
@@ -93,6 +94,7 @@ public class Pause : MonoBehaviour
 
     public void OpenQuitMenu()
     {
+        // Play clicking sound
         audioManagement.gameObject.SetActive(true);
         audioManagement.Play("Click");
 
@@ -103,6 +105,7 @@ public class Pause : MonoBehaviour
 
     public void CloseQuitMenu()
     {
+        // Play clicking sound
         audioManagement.gameObject.SetActive(true);
         audioManagement.Play("Click");
 
@@ -112,9 +115,11 @@ public class Pause : MonoBehaviour
 
     public void QuitGame()
     {
-        // Quits the game
+        // Play clicking sound
         audioManagement.gameObject.SetActive(true);
         audioManagement.Play("Click");
+
+        // Quits the game
         Debug.Log("Application has been quit.");
         Application.Quit();
     }
