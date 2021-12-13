@@ -32,8 +32,6 @@ public class Flocking : MonoBehaviour
     {
         goal = new Vector2(flockManager.transform.position.x - 6f, flockManager.transform.position.y + 4f);
         velocity = new Vector2(Random.Range(0.01f, 0.1f), Random.Range(0.01f, 0.1f));
-        //location = new Vector2(this.gameObject.transform.position.x, 
-                               //this.gameObject.transform.position.y);
     }
 
     Vector2 Seek(Vector2 target)
@@ -56,21 +54,17 @@ public class Flocking : MonoBehaviour
         velocity = this.GetComponent<Rigidbody2D>().velocity;
         location = this.transform.position;
 
+        Vector2 alignment = Alignment();
+        Vector2 cohesion = Cohesion();
 
-        //if(Random.Range(0, 50) <= 1)
-        //{
-            Vector2 alignment = Alignment();
-            Vector2 cohesion = Cohesion();
+        // Sets the goal position
+        Vector2 goalPosition;
+        goalPosition = Seek(goal);
 
-            // Sets the goal position
-            Vector2 goalPosition;
-            goalPosition = Seek(goal);
-
-            /* Sets and normalises the current force, to ensure all objects
-             * move with the same amount of force */
-            currentForce = goalPosition + cohesion + alignment;
-            currentForce = currentForce.normalized;
-        //}
+        /* Sets and normalises the current force, to ensure all objects
+         * move with the same amount of force */
+        currentForce = goalPosition + cohesion + alignment;
+        currentForce = currentForce.normalized;
 
         ApplyForce(currentForce);
     }
@@ -143,7 +137,6 @@ public class Flocking : MonoBehaviour
         return Vector2.zero;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Calls the flocking method

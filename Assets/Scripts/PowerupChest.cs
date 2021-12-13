@@ -12,9 +12,10 @@ public class PowerupChest : MonoBehaviour
     [SerializeField]
     private PlayerLives playerLives;
 
-    // Start is called before the first frame update
+
     void Start()
     {
+        // Initialising the necessary components
         animator = GetComponent<Animator>();
         audioManagement = FindObjectOfType<AudioManagement>();
 

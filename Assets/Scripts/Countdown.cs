@@ -16,14 +16,13 @@ public class Countdown : MonoBehaviour
 
     private TextMeshProUGUI text;
 
-    // Start is called before the first frame update
     void Start()
     {
+        // Initialising components
         remainingTime = startTime;
         text = GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Subtracts time remaining, at each timestep

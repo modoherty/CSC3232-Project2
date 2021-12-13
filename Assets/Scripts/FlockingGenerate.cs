@@ -28,14 +28,6 @@ public class FlockingGenerate : MonoBehaviour
     [Range(0.0f, 5.0f), SerializeField]
     public float neighbourDist;
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(this.transform.position, range * 2);
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(this.transform.position, 0.2f);
-    }
-
     void Start()
     {
         // Create a new array of GameObjects
@@ -52,11 +44,5 @@ public class FlockingGenerate : MonoBehaviour
                                     Quaternion.identity) as GameObject;
             shapes[i].GetComponent<Flocking>().flockManager = this.gameObject;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

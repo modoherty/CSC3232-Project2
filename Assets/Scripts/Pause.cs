@@ -22,6 +22,7 @@ public class Pause : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Finding the level's audio manager
         audioManagement = FindObjectOfType<AudioManagement>();
     }
 
